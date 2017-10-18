@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'puppy_store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'puppy_store_drf',
-        'USER': '',     # <your-user>
-        'PASSWORD': '', # <your-password>
-        'HOST': '127.0.0.1',
+        'NAME': 'puppy',
+        'USER': 'admin',     # <your-user>
+        'PASSWORD': 'colombia', # <your-password>
+        'HOST': 'db',
         'PORT': '5432'
     }
 }

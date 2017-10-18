@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:9.5
+    environment:
+      - POSTGRES_DB=puppy
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=colombia
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db_data_2:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+  django:
+    build: .
+    command: "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./puppy_store:/webapp
+    ports:
+      - "80:8000"
+    depends_on:
+
+      - db
+
+
+volumes:  
+  db_data_2:
+    external: true
